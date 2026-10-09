@@ -31,3 +31,15 @@ for d in ["1-Dec", "2-Dec", "3-Dec"]:
     b, se, sew, sen, r2 = ols(y, X)
     print(d, "c=%.4f phi=%.4f t_classical=%.2f t_White=%.2f t_NW=%.2f R2=%.4f"
           % (b[0], b[1], b[1]/se[1], b[1]/sew[1], b[1]/sen[1], r2))
+
+
+# 3(b) ANSWER
+# Statistically, weakly yes: phi is positive for Deciles 1-3 (0.018, 0.024, 0.030).
+# Classical t-stats (3.5-5.6) are too optimistic because daily returns are
+# heteroskedastic. With White/Newey-West SEs, Decile 1 is borderline (t ~1.5-1.95)
+# and Deciles 2 and 3 are significant at 5% (t ~2.1-3.3).
+# Economically, no: R2 is only 0.05%-0.13%, so a 1% small-cap return yesterday
+# moves the predicted market return by only ~0.02-0.03%. Not tradable after costs.
+# Possible reason: slow information diffusion / nonsynchronous trading in small stocks.
+# Data-mining caveat: we picked 3 predictors with no model, so some significance
+# may be by chance. It needs out-of-sample confirmation before being trusted.
